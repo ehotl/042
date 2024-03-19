@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>042(가명)</title>
+    <!-- 나의 CSS, JS 연결 -->
+    <link rel="stylesheet" href="042.css">
+    <script type="text/javascript" src="042.js"></script>
+    <!-- google font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" id="logo" data-text="042">042</a>
+    </header>
+
+    
+
+    <!-- 로고 글리치 -->
+    <script>
+        function glitch(element){
+            let count = 0
+            setInterval(()=>{
+                // element
+                const skew = Math.random() * 20 - 10
+
+                // element::before
+                const top1 = Math.random() * 100
+                const btm1 = Math.random() * 100
+                // element::after
+                const top2 = Math.random() * 100
+                const btm2 = Math.random() * 100
+                
+                element.style.setProperty('--skew', `${skew}deg`)
+                element.style.setProperty('--t1', `${top1}%`)
+                element.style.setProperty('--b1', `${btm1}%`)
+                element.style.setProperty('--t2', `${top2}%`)
+                element.style.setProperty('--b2', `${btm2}%`)
+                element.style.setProperty('--scale', '1')
+
+                count++
+
+                if(count % 15 === 0 ) {
+                    const bigskew = Math.random() * 180 - 90
+
+                    element.style.setProperty('--skew', `${bigskew}deg`)
+                }
+                if(count % 30 === 0) {
+                    const bigScale = 1 + Math.random() / 2
+                    element.style.setProperty('--scale', `${bigScale}`)
+                }
+
+            },100)
+        }
+        const logo = document.querySelector('#logo')
+        glitch(logo)
+    </script>
+    <!-- 빗줄기 배경 -->
+      <canvas></canvas>
+      <script type="text/javascript" src="rainning.js"></script>
+</body>
+</html>
